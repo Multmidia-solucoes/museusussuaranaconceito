@@ -10,33 +10,63 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TourRouteImport } from './routes/tour'
+import { Route as AcervoIndexRouteImport } from './routes/acervo.index'
+import { Route as AcervoItemIdRouteImport } from './routes/acervo.$itemId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TourRoute = TourRouteImport.update({
+  id: '/tour',
+  path: '/tour',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcervoIndexRoute = AcervoIndexRouteImport.update({
+  id: '/acervo/',
+  path: '/acervo/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcervoItemIdRoute = AcervoItemIdRouteImport.update({
+  id: '/acervo/$itemId',
+  path: '/acervo/$itemId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/tour': typeof TourRoute
+  '/acervo/$itemId': typeof AcervoItemIdRoute
+  '/acervo/': typeof AcervoIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/tour': typeof TourRoute
+  '/acervo/$itemId': typeof AcervoItemIdRoute
+  '/acervo': typeof AcervoIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/tour': typeof TourRoute
+  '/acervo/$itemId': typeof AcervoItemIdRoute
+  '/acervo/': typeof AcervoIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/tour' | '/acervo/$itemId' | '/acervo/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/tour' | '/acervo/$itemId' | '/acervo'
+  id: '__root__' | '/' | '/tour' | '/acervo/$itemId' | '/acervo/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  TourRoute: typeof TourRoute
+  AcervoItemIdRoute: typeof AcervoItemIdRoute
+  AcervoIndexRoute: typeof AcervoIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +78,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/tour': {
+      id: '/tour'
+      path: '/tour'
+      fullPath: '/tour'
+      preLoaderRoute: typeof TourRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/acervo/': {
+      id: '/acervo/'
+      path: '/acervo'
+      fullPath: '/acervo/'
+      preLoaderRoute: typeof AcervoIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/acervo/$itemId': {
+      id: '/acervo/$itemId'
+      path: '/acervo/$itemId'
+      fullPath: '/acervo/$itemId'
+      preLoaderRoute: typeof AcervoItemIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  TourRoute: TourRoute,
+  AcervoItemIdRoute: AcervoItemIdRoute,
+  AcervoIndexRoute: AcervoIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
