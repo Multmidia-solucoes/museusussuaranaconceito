@@ -10,33 +10,193 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as EventosRouteImport } from './routes/eventos'
+import { Route as GaleriaRouteImport } from './routes/galeria'
+import { Route as MateriaisRouteImport } from './routes/materiais'
+import { Route as RoteirosRouteImport } from './routes/roteiros'
+import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as TourRouteImport } from './routes/tour'
+import { Route as TransparenciaRouteImport } from './routes/transparencia'
+import { Route as AcervoIndexRouteImport } from './routes/acervo.index'
+import { Route as AcervoItemIdRouteImport } from './routes/acervo.$itemId'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventosRoute = EventosRouteImport.update({
+  id: '/eventos',
+  path: '/eventos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GaleriaRoute = GaleriaRouteImport.update({
+  id: '/galeria',
+  path: '/galeria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MateriaisRoute = MateriaisRouteImport.update({
+  id: '/materiais',
+  path: '/materiais',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoteirosRoute = RoteirosRouteImport.update({
+  id: '/roteiros',
+  path: '/roteiros',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TourRoute = TourRouteImport.update({
+  id: '/tour',
+  path: '/tour',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TransparenciaRoute = TransparenciaRouteImport.update({
+  id: '/transparencia',
+  path: '/transparencia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcervoIndexRoute = AcervoIndexRouteImport.update({
+  id: '/acervo/',
+  path: '/acervo/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcervoItemIdRoute = AcervoItemIdRouteImport.update({
+  id: '/acervo/$itemId',
+  path: '/acervo/$itemId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/eventos': typeof EventosRoute
+  '/galeria': typeof GaleriaRoute
+  '/materiais': typeof MateriaisRoute
+  '/roteiros': typeof RoteirosRoute
+  '/sobre': typeof SobreRoute
+  '/tour': typeof TourRoute
+  '/transparencia': typeof TransparenciaRoute
+  '/acervo/$itemId': typeof AcervoItemIdRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/acervo/': typeof AcervoIndexRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/eventos': typeof EventosRoute
+  '/galeria': typeof GaleriaRoute
+  '/materiais': typeof MateriaisRoute
+  '/roteiros': typeof RoteirosRoute
+  '/sobre': typeof SobreRoute
+  '/tour': typeof TourRoute
+  '/transparencia': typeof TransparenciaRoute
+  '/acervo/$itemId': typeof AcervoItemIdRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/acervo': typeof AcervoIndexRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/eventos': typeof EventosRoute
+  '/galeria': typeof GaleriaRoute
+  '/materiais': typeof MateriaisRoute
+  '/roteiros': typeof RoteirosRoute
+  '/sobre': typeof SobreRoute
+  '/tour': typeof TourRoute
+  '/transparencia': typeof TransparenciaRoute
+  '/acervo/$itemId': typeof AcervoItemIdRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/acervo/': typeof AcervoIndexRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contato'
+    | '/eventos'
+    | '/galeria'
+    | '/materiais'
+    | '/roteiros'
+    | '/sobre'
+    | '/tour'
+    | '/transparencia'
+    | '/acervo/$itemId'
+    | '/blog/$slug'
+    | '/acervo/'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contato'
+    | '/eventos'
+    | '/galeria'
+    | '/materiais'
+    | '/roteiros'
+    | '/sobre'
+    | '/tour'
+    | '/transparencia'
+    | '/acervo/$itemId'
+    | '/blog/$slug'
+    | '/acervo'
+    | '/blog'
+  id:
+    | '__root__'
+    | '/'
+    | '/contato'
+    | '/eventos'
+    | '/galeria'
+    | '/materiais'
+    | '/roteiros'
+    | '/sobre'
+    | '/tour'
+    | '/transparencia'
+    | '/acervo/$itemId'
+    | '/blog/$slug'
+    | '/acervo/'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContatoRoute: typeof ContatoRoute
+  EventosRoute: typeof EventosRoute
+  GaleriaRoute: typeof GaleriaRoute
+  MateriaisRoute: typeof MateriaisRoute
+  RoteirosRoute: typeof RoteirosRoute
+  SobreRoute: typeof SobreRoute
+  TourRoute: typeof TourRoute
+  TransparenciaRoute: typeof TransparenciaRoute
+  AcervoItemIdRoute: typeof AcervoItemIdRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  AcervoIndexRoute: typeof AcervoIndexRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +208,108 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eventos': {
+      id: '/eventos'
+      path: '/eventos'
+      fullPath: '/eventos'
+      preLoaderRoute: typeof EventosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/galeria': {
+      id: '/galeria'
+      path: '/galeria'
+      fullPath: '/galeria'
+      preLoaderRoute: typeof GaleriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/materiais': {
+      id: '/materiais'
+      path: '/materiais'
+      fullPath: '/materiais'
+      preLoaderRoute: typeof MateriaisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roteiros': {
+      id: '/roteiros'
+      path: '/roteiros'
+      fullPath: '/roteiros'
+      preLoaderRoute: typeof RoteirosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tour': {
+      id: '/tour'
+      path: '/tour'
+      fullPath: '/tour'
+      preLoaderRoute: typeof TourRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/transparencia': {
+      id: '/transparencia'
+      path: '/transparencia'
+      fullPath: '/transparencia'
+      preLoaderRoute: typeof TransparenciaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/acervo/': {
+      id: '/acervo/'
+      path: '/acervo'
+      fullPath: '/acervo/'
+      preLoaderRoute: typeof AcervoIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/acervo/$itemId': {
+      id: '/acervo/$itemId'
+      path: '/acervo/$itemId'
+      fullPath: '/acervo/$itemId'
+      preLoaderRoute: typeof AcervoItemIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContatoRoute: ContatoRoute,
+  EventosRoute: EventosRoute,
+  GaleriaRoute: GaleriaRoute,
+  MateriaisRoute: MateriaisRoute,
+  RoteirosRoute: RoteirosRoute,
+  SobreRoute: SobreRoute,
+  TourRoute: TourRoute,
+  TransparenciaRoute: TransparenciaRoute,
+  AcervoItemIdRoute: AcervoItemIdRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  AcervoIndexRoute: AcervoIndexRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
