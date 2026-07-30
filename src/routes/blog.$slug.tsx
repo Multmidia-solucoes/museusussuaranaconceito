@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/site/Section";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { posts } from "@/data/museu";
+import { posts, type Post } from "@/data/museu";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/blog/$slug")({
 });
 
 function PostPage() {
-  const { post } = Route.useLoaderData();
+  const { post } = Route.useLoaderData() as { post: Post };
   const relacionados = posts.filter((p) => p.slug !== post.slug);
 
   return (
@@ -56,12 +56,12 @@ function PostPage() {
           className="mt-6 w-full rounded-2xl shadow-terra"
         />
         <div className="mt-8 space-y-5 text-lg leading-relaxed text-foreground/90">
-          {post.conteudo.map((par, i) => (
+          {post.conteudo.map((par: string, i: number) => (
             <p key={i}>{par}</p>
           ))}
         </div>
         <div className="mt-8 flex flex-wrap gap-2">
-          {post.tags.map((t) => (
+          {post.tags.map((t: string) => (
             <Badge key={t} variant="outline">
               #{t}
             </Badge>
