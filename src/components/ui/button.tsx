@@ -16,6 +16,11 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        hero: "bg-gradient-terra text-foreground font-semibold shadow-terra hover:brightness-105 hover:-translate-y-0.5 transition-all",
+        terra:
+          "bg-secondary text-secondary-foreground shadow-sm hover:bg-[color-mix(in_oklab,var(--secondary)_88%,black)]",
+        contorno:
+          "border-2 border-secondary/40 bg-transparent text-secondary hover:bg-secondary hover:text-secondary-foreground",
       },
       size: {
         default: "h-9 px-4 py-2",
