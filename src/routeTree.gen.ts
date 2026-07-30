@@ -10,6 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EventosRouteImport } from './routes/eventos'
+import { Route as MateriaisRouteImport } from './routes/materiais'
+import { Route as RoteirosRouteImport } from './routes/roteiros'
+import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as TourRouteImport } from './routes/tour'
 import { Route as AcervoIndexRouteImport } from './routes/acervo.index'
 import { Route as AcervoItemIdRouteImport } from './routes/acervo.$itemId'
@@ -17,6 +21,26 @@ import { Route as AcervoItemIdRouteImport } from './routes/acervo.$itemId'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventosRoute = EventosRouteImport.update({
+  id: '/eventos',
+  path: '/eventos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MateriaisRoute = MateriaisRouteImport.update({
+  id: '/materiais',
+  path: '/materiais',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoteirosRoute = RoteirosRouteImport.update({
+  id: '/roteiros',
+  path: '/roteiros',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TourRoute = TourRouteImport.update({
@@ -37,12 +61,20 @@ const AcervoItemIdRoute = AcervoItemIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/eventos': typeof EventosRoute
+  '/materiais': typeof MateriaisRoute
+  '/roteiros': typeof RoteirosRoute
+  '/sobre': typeof SobreRoute
   '/tour': typeof TourRoute
   '/acervo/$itemId': typeof AcervoItemIdRoute
   '/acervo/': typeof AcervoIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/eventos': typeof EventosRoute
+  '/materiais': typeof MateriaisRoute
+  '/roteiros': typeof RoteirosRoute
+  '/sobre': typeof SobreRoute
   '/tour': typeof TourRoute
   '/acervo/$itemId': typeof AcervoItemIdRoute
   '/acervo': typeof AcervoIndexRoute
@@ -50,20 +82,53 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/eventos': typeof EventosRoute
+  '/materiais': typeof MateriaisRoute
+  '/roteiros': typeof RoteirosRoute
+  '/sobre': typeof SobreRoute
   '/tour': typeof TourRoute
   '/acervo/$itemId': typeof AcervoItemIdRoute
   '/acervo/': typeof AcervoIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/tour' | '/acervo/$itemId' | '/acervo/'
+  fullPaths:
+    | '/'
+    | '/eventos'
+    | '/materiais'
+    | '/roteiros'
+    | '/sobre'
+    | '/tour'
+    | '/acervo/$itemId'
+    | '/acervo/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/tour' | '/acervo/$itemId' | '/acervo'
-  id: '__root__' | '/' | '/tour' | '/acervo/$itemId' | '/acervo/'
+  to:
+    | '/'
+    | '/eventos'
+    | '/materiais'
+    | '/roteiros'
+    | '/sobre'
+    | '/tour'
+    | '/acervo/$itemId'
+    | '/acervo'
+  id:
+    | '__root__'
+    | '/'
+    | '/eventos'
+    | '/materiais'
+    | '/roteiros'
+    | '/sobre'
+    | '/tour'
+    | '/acervo/$itemId'
+    | '/acervo/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EventosRoute: typeof EventosRoute
+  MateriaisRoute: typeof MateriaisRoute
+  RoteirosRoute: typeof RoteirosRoute
+  SobreRoute: typeof SobreRoute
   TourRoute: typeof TourRoute
   AcervoItemIdRoute: typeof AcervoItemIdRoute
   AcervoIndexRoute: typeof AcervoIndexRoute
@@ -76,6 +141,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eventos': {
+      id: '/eventos'
+      path: '/eventos'
+      fullPath: '/eventos'
+      preLoaderRoute: typeof EventosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/materiais': {
+      id: '/materiais'
+      path: '/materiais'
+      fullPath: '/materiais'
+      preLoaderRoute: typeof MateriaisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roteiros': {
+      id: '/roteiros'
+      path: '/roteiros'
+      fullPath: '/roteiros'
+      preLoaderRoute: typeof RoteirosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tour': {
@@ -104,6 +197,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EventosRoute: EventosRoute,
+  MateriaisRoute: MateriaisRoute,
+  RoteirosRoute: RoteirosRoute,
+  SobreRoute: SobreRoute,
   TourRoute: TourRoute,
   AcervoItemIdRoute: AcervoItemIdRoute,
   AcervoIndexRoute: AcervoIndexRoute,
